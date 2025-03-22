@@ -15,6 +15,7 @@ function seed(test_scores) {
 
 function createScoreTable() {
   return db.query(`CREATE TABLE scores(
+        id SERIAL PRIMARY KEY,
         score INT
         )`);
 }
