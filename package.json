@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test-endpoints": "PGDATABASE=scores jest app.test.js",
+    "test": "PGDATABASE=scores jest app.test.js",
     "setup-db": "psql -f db/scores.sql",
     "seed": "PGDATABASE=scores node db/run-seed.js",
     "server": "./app.js"
