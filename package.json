@@ -1,12 +1,14 @@
 {
   "name": "wordbox",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "listen.js",
   "scripts": {
     "test": "PGDATABASE=scores jest app.test.js",
     "setup-db": "psql -f db/scores.sql",
     "seed": "PGDATABASE=scores node db/run-seed.js",
-    "server": "./app.js"
+    "server": "./app.js",
+    "start": "node listen.js",
+    "seed-prod": "NODE_ENV=production npm run seed"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +16,7 @@
   "description": "",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "jest": "^29.7.0",
     "nodemon": "^3.1.9",
