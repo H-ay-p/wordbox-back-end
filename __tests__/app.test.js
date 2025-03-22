@@ -41,3 +41,14 @@ describe("GET /api/max_score", () => {
       });
   });
 });
+
+describe("GET /api/getLetters", () => {
+  test("should produce new set of letters", () => {
+    return request(app)
+      .get("/api/get_letters")
+      .expect(200)
+      .then((response) => {
+        expect(response.body.length).toBe(16);
+      });
+  });
+});
