@@ -5,6 +5,7 @@ const postScore = require("./controllers/postScoreController.js");
 const getLetters = require("./functions/getLettersFunc.js");
 const cors = require("cors");
 
+app.use(cors());
 const app = express();
 app.use(express.json());
 

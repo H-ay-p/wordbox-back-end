@@ -42,7 +42,7 @@ describe("GET /api/max_score", () => {
   });
 });
 
-describe("GET /api/getLetters", () => {
+describe("GET /api/get_letters", () => {
   test("should produce new set of letters", () => {
     return request(app)
       .get("/api/get_letters")
