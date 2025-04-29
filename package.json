@@ -4,8 +4,8 @@
   "main": "listen.js",
   "scripts": {
     "test": "PGDATABASE=scores jest app.test.js",
-    "setup-db": "psql -f db/scores.sql",
-    "seed": "PGDATABASE=scores node db/run-seed.js",
+    "setup-db": "psql -f db/game.sql",
+    "seed": "PGDATABASE=game node db/run-seed.js",
     "server": "./app.js",
     "start": "node listen.js",
     "seed-prod": "NODE_ENV=production npm run seed"

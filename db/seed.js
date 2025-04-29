@@ -6,7 +6,13 @@ function seed(test_scores) {
   return db
     .query("DROP TABLE IF EXISTS scores;")
     .then(() => {
+      return db.query("DROP TABLE IF EXISTS users;");
+    })
+    .then(() => {
       return createScoreTable();
+    })
+    .then(() => {
+      return createUsersTable();
     })
     .then(() => {
       return insertScoreData(test_scores);
@@ -17,6 +23,13 @@ function createScoreTable() {
   return db.query(`CREATE TABLE scores(
         id SERIAL PRIMARY KEY,
         score INT
+        )`);
+}
+
+function createUsersTable() {
+  return db.query(`CREATE TABLE users(
+        id SERIAL PRIMARY KEY,
+        name VARCHAR
         )`);
 }
 
