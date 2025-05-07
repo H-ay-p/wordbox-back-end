@@ -49,8 +49,23 @@ wss.on("connection", function connection(ws) {
   }
 
   ws.on("message", function incoming(message) {
-    const data = JSON.parse(message);
+    try {
+      const data = JSON.parse(message);
+      console.log("Server received:", data);
 
+      if (data.type === "letter") {
+        // Broadcast to all other clients
+        wss.clients.forEach((client) => {
+          if (client !== ws && client.readyState === WebSocket.OPEN) {
+            console.log("Server broadcasting letter to another client");
+            client.send(JSON.stringify(data));
+          }
+        });
+      }
+    } catch (error) {
+      console.error("Server message error:", error);
+    }
+    const data = JSON.parse(message);
     // Handle turn-based logic
     if (data.type === "move" && data.playerNumber === currentTurn) {
       console.log(`Player ${currentTurn} made a move`);
